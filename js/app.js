@@ -107,6 +107,7 @@ const QUESTIONS = {
       { value: 'wellness', label: 'Wellness & Spa', emoji: '💆', desc: 'Ruhe, Sauna, Verwöhnprogramm' },
       { value: 'kulinarik', label: 'Kulinarik & Genuss', emoji: '🍽️', desc: 'Gourmet-Restaurants, Weinproben' },
       { value: 'familie', label: 'Familienspaß', emoji: '🏊', desc: 'Kids Club, Familienprogramm' },
+      { value: 'mix', label: 'Ein bisschen von allem', emoji: '🎡', desc: 'Kein klarer Favorit – Hauptsache Abwechslung' },
     ],
   },
   vibe: {
@@ -116,6 +117,7 @@ const QUESTIONS = {
     options: [
       { value: 'relax', label: 'Ruhe & Entspannung', emoji: '🌅', desc: 'Entschleunigt und stilvoll' },
       { value: 'entertainment', label: 'Entertainment & Party', emoji: '🎶', desc: 'Action, Shows, Stimmung' },
+      { value: 'mix', label: 'Ein bisschen von beidem', emoji: '🎭', desc: 'Ruhe und Trubel im Wechsel' },
     ],
   },
   budget: {
@@ -200,11 +202,19 @@ function determineCabin(viewPref, budgetLevel, companion) {
   return { ...CABIN_TYPES[type], id: type, note };
 }
 
+function deriveVibe(a) {
+  // "mix" heißt: keine Stil-Präferenz – alle Reedereien bekommen eine faire Chance.
+  if (a.vibe === 'mix' || a.onboardFocus === 'mix') return null;
+  if (a.vibe) return a.vibe;
+  if (a.onboardFocus === 'wellness') return 'relax';
+  if (a.onboardFocus) return 'entertainment';
+  if (a.priority === 'relax') return 'relax';
+  return null;
+}
+
 function computeResult() {
   const a = state.answers;
-  const vibe = a.vibe || (a.onboardFocus === 'wellness' ? 'relax'
-    : a.onboardFocus ? 'entertainment'
-    : a.priority === 'relax' ? 'relax' : null);
+  const vibe = deriveVibe(a);
 
   const candidates = CRUISE_LINES
     .map((line) => ({ line, score: scoreLine(line, a.region, vibe, a.budget, a.companion) }))
@@ -391,18 +401,31 @@ function closeExplorer() {
   explorer.panel.setAttribute('aria-hidden', 'true');
 }
 
+function styleBadge(styleKey) {
+  const s = STYLE_META[styleKey];
+  return `<span class="explorer-badge" style="background:${s.color}22; color:${s.color}; border-color:${s.color}55;">${s.emoji} ${s.label}</span>`;
+}
+
+function budgetBadge(budgetLevel) {
+  const b = BUDGET_META[budgetLevel];
+  return `<span class="explorer-badge explorer-badge-budget">${b.symbol} ${b.label}</span>`;
+}
+
 function renderExplorer() {
   if (!explorer.currentLineId) {
     explorer.body.innerHTML = `
       <p class="explorer-intro">Stöbere unabhängig vom Cruise Finder durch alle Reedereien: Routen, Schiffe, Stil und für wen sie sich am besten eignen.</p>
       ${CRUISE_LINES.map((line) => `
         <button class="explorer-list-item" data-line="${line.id}">
-          <strong>${line.name}</strong>
-          <span class="tagline">${line.tagline}</span>
-          <span class="explorer-badges">
-            <span class="explorer-badge">${STYLE_LABELS[line.style]}</span>
-            <span class="explorer-badge">${BUDGET_LABELS[line.budget]}</span>
-            ${line.family ? '<span class="explorer-badge">Familienfreundlich</span>' : ''}
+          <span class="explorer-avatar" style="background:${STYLE_META[line.style].color};">${STYLE_META[line.style].emoji}</span>
+          <span class="explorer-list-text">
+            <strong>${line.name}</strong>
+            <span class="tagline">${line.tagline}</span>
+            <span class="explorer-badges">
+              ${styleBadge(line.style)}
+              ${budgetBadge(line.budget)}
+              ${line.family ? '<span class="explorer-badge">👨‍👩‍👧 Familienfreundlich</span>' : '<span class="explorer-badge">🥂 Eher für Erwachsene</span>'}
+            </span>
           </span>
         </button>
       `).join('')}
@@ -416,6 +439,7 @@ function renderExplorer() {
     });
   } else {
     const line = CRUISE_LINES.find((l) => l.id === explorer.currentLineId);
+    const p = line.profile;
     const routeRows = Object.entries(line.regions).map(([regionId, ships]) => {
       const region = REGIONS.find((r) => r.id === regionId);
       return ships.map((s) => `
@@ -432,16 +456,17 @@ function renderExplorer() {
     explorer.body.innerHTML = `
       <button class="explorer-back" id="explorer-back">← Alle Reedereien</button>
       <div class="explorer-detail">
+        <span class="explorer-avatar explorer-avatar-lg" style="background:${STYLE_META[line.style].color};">${STYLE_META[line.style].emoji}</span>
         <h2>${line.name}</h2>
         <p class="tagline">${line.tagline}</p>
 
         <div class="explorer-section">
           <h4>Auf einen Blick</h4>
           <span class="explorer-badges">
-            <span class="explorer-badge">${STYLE_LABELS[line.style]}</span>
-            <span class="explorer-badge">${BUDGET_LABELS[line.budget]}</span>
-            ${line.family ? '<span class="explorer-badge">Familienfreundlich</span>' : ''}
-            ${line.adultsFocus ? '<span class="explorer-badge">Eher für Erwachsene</span>' : ''}
+            ${styleBadge(line.style)}
+            ${budgetBadge(line.budget)}
+            ${line.family ? '<span class="explorer-badge">👨‍👩‍👧 Familienfreundlich</span>' : ''}
+            ${line.adultsFocus ? '<span class="explorer-badge">🥂 Eher für Erwachsene</span>' : ''}
           </span>
         </div>
 
@@ -451,7 +476,37 @@ function renderExplorer() {
         </div>
 
         <div class="explorer-section">
-          <h4>Routen & Schiffe</h4>
+          <h4>Basics</h4>
+          <div class="explorer-basics">
+            <div><span>Gegründet</span><strong>${p.founded}</strong></div>
+            <div><span>Sitz</span><strong>${p.headquarters}</strong></div>
+            <div><span>Flottengröße</span><strong>${p.fleetSize}</strong></div>
+          </div>
+        </div>
+
+        <div class="explorer-section">
+          <h4>Angebote & Highlights an Bord</h4>
+          <ul class="explorer-highlights">
+            ${p.highlights.map((h) => `<li>${h}</li>`).join('')}
+          </ul>
+        </div>
+
+        <div class="explorer-section">
+          <h4>Schiffsklassen</h4>
+          <ul class="explorer-highlights">
+            ${p.shipClasses.map((c) => `<li>${c}</li>`).join('')}
+          </ul>
+        </div>
+
+        <div class="explorer-section">
+          <h4>Flotte (Auswahl)</h4>
+          <div class="explorer-fleet">
+            ${p.fleet.map((s) => `<span class="fleet-chip">🚢 ${s}</span>`).join('')}
+          </div>
+        </div>
+
+        <div class="explorer-section">
+          <h4>Routen & Schiffe im Cruise Finder</h4>
           ${routeRows}
         </div>
 

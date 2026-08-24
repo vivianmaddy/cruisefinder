@@ -8,8 +8,10 @@ Traumkreuzfahrt führt: **Route → Reederei → Schiff → Kabine**.
 1. **Wer reist mit** – Begleitung (Solo, Paar, Familie, Freunde) und Altersgruppe.
 2. **Priorität** – Route & Reiseziel, Bordleben/Entertainment, Ruhe & Erholung oder Budget.
 3. **Vertiefung je nach Priorität**
-   - *Route*: Region wählen (z. B. Hawaii & Südsee) → Ruhe vs. Entertainment.
-   - *Bordleben*: Sport, Wellness, Kulinarik oder Familienspaß → Region.
+   - *Route*: Region wählen (z. B. Hawaii & Südsee) → Ruhe, Entertainment oder
+     „ein bisschen von beidem" (Mix, keine Stilpräferenz).
+   - *Bordleben*: Sport, Wellness, Kulinarik, Familienspaß oder „ein bisschen
+     von allem" (Mix) → Region.
    - *Ruhe & Erholung*: direkt Region wählen.
    - *Budget*: Preisstufe wählen → Region.
 4. **Reisedauer** – gewünschte Länge der Reise.
@@ -26,10 +28,18 @@ Antarktis) sowie Weltreise.
 
 Unabhängig vom Quiz gibt es einen Reiter am rechten Bildschirmrand
 ("⚓ Alle Reedereien"), der jederzeit erreichbar ist. Er öffnet eine
-Seitenleiste mit allen Reedereien zum Stöbern – inklusive Stil, Preisklasse,
-Zielgruppe, allen angefahrenen Routen mit Schiffen sowie einem Link zur
-jeweiligen Website. So können Nutzer:innen auch ohne den Fragebogen einfach
-vergleichen.
+Seitenleiste mit allen Reedereien zum Stöbern – jede mit farblich hervorgehobenem
+Stil-Badge (🧘/⚖️/🎉) und Preis-Badge mit €-Symbolen statt nur einem Wort, damit
+sofort klar ist, ob "Mittel" die Preisklasse meint. In der Detailansicht gibt es
+zusätzlich: Basics (gegründet, Sitz, Flottengröße), Angebote & Highlights an
+Bord, Schiffsklassen, eine Auswahl der Flotte als Chips sowie alle Routen mit
+Schiffen und den Website-Link. So können Nutzer:innen auch ohne den Fragebogen
+einfach vergleichen und stöbern.
+
+Die Zusatzangaben pro Reederei (Gründungsjahr, Sitz, Flottengröße, Schiffsklassen,
+Flottenauswahl) sind als allgemeine Orientierung gedacht und wurden ohne
+Live-Zugriff auf aktuelle Reederei-Daten erstellt – vor dem Live-Gang gegen die
+aktuellen offiziellen Angaben der jeweiligen Reederei prüfen.
 
 ## Projektstruktur
 

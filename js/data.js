@@ -18,13 +18,20 @@ const REGIONS = [
    budget: 1 (günstig) – 4 (luxuriös)
    family: eignet sich gut für Familien mit Kindern
    adultsFocus: eher ruhiges, erwachsenenorientiertes Publikum
-   bestFor: Kurzbeschreibung, für wen die Reederei am besten passt */
+   bestFor: Kurzbeschreibung, für wen die Reederei am besten passt
+   profile: allgemeine Basics, Flotte/Schiffsklassen (Auswahl) & Bord-Highlights */
 const CRUISE_LINES = [
   {
     id: 'aida', name: 'AIDA Cruises', tagline: 'Bunt, entspannt, Clubatmosphäre an Bord',
     website: 'https://www.aida.de',
     style: 'entertainment', budget: 1, family: true, adultsFocus: false,
     bestFor: 'Junge Reisende und Familien, die viel Programm und Stimmung an Bord lieben – bei moderatem Preis.',
+    profile: {
+      founded: '1996', headquarters: 'Rostock, Deutschland', fleetSize: 'rund 11 Schiffe',
+      shipClasses: ['AIDAnova-Klasse – AIDAnova, AIDAcosma (LNG-angetrieben)', 'Hyperion-Klasse – AIDAprima, AIDAperla', 'Sphinx-Klasse – AIDAsol, AIDAmar, AIDAblu, AIDAbella, AIDAluna'],
+      fleet: ['AIDAnova', 'AIDAcosma', 'AIDAprima', 'AIDAperla', 'AIDAsol', 'AIDAmar', 'AIDAblu'],
+      highlights: ['Deutschsprachige Crew & Ansagen', 'Optionales All-Inclusive-Paket buchbar', 'Beach Club, Wasserrutschen & Kletterwald an Bord', 'Buffet-Restaurant „Markt" mit Schauküchen'],
+    },
     regions: {
       karibik:    [{ ship: 'AIDAperla',  durations: [7, 11, 14], note: 'Inselhopping ab Guadeloupe' }],
       mittelmeer: [{ ship: 'AIDAcosma',  durations: [7, 10, 14], note: 'Klassische Westmittelmeer-Route' }],
@@ -37,6 +44,12 @@ const CRUISE_LINES = [
     website: 'https://www.msccruises.de',
     style: 'entertainment', budget: 2, family: true, adultsFocus: false,
     bestFor: 'Familien und Paare, die moderne Mega-Schiffe mit viel Entertainment und italienischem Flair mögen.',
+    profile: {
+      founded: '1990', headquarters: 'Genf, Schweiz', fleetSize: 'rund 22 Schiffe',
+      shipClasses: ['World-Klasse – MSC World Europa, MSC World America', 'Meraviglia-Klasse – MSC Meraviglia, MSC Bellissima, MSC Grandiosa', 'Seaside-Klasse – MSC Seaside, MSC Seascape'],
+      fleet: ['MSC World Europa', 'MSC Grandiosa', 'MSC Meraviglia', 'MSC Seascape', 'MSC Virtuosa', 'MSC Bellissima'],
+      highlights: ['Italienisches Flair & Küche an Bord', 'Yacht Club – exklusiver Schiff-im-Schiff-Bereich', '„Cirque du Soleil at Sea" auf ausgewählten Schiffen', 'Großes Kids- & Teens-Programm'],
+    },
     regions: {
       karibik:    [{ ship: 'MSC Seascape',   durations: [7, 10, 14], note: 'Ab Miami durch die östliche Karibik' }],
       mittelmeer: [{ ship: 'MSC World Europa', durations: [7, 10],   note: 'Ab Barcelona ins westliche Mittelmeer' }],
@@ -49,6 +62,12 @@ const CRUISE_LINES = [
     website: 'https://www.costakreuzfahrten.de',
     style: 'entertainment', budget: 2, family: true, adultsFocus: false,
     bestFor: 'Genießer italienischer Lebensart, Familien und preisbewusste Erstkreuzfahrer.',
+    profile: {
+      founded: '1854 (Reederei-Wurzeln)', headquarters: 'Genua, Italien', fleetSize: 'rund 8 Schiffe',
+      shipClasses: ['Excellence-Klasse – Costa Smeralda, Costa Toscana (LNG-angetrieben)', 'Concordia-Klasse – u. a. Costa Diadema'],
+      fleet: ['Costa Toscana', 'Costa Smeralda', 'Costa Diadema', 'Costa Fascinosa', 'Costa Favolosa'],
+      highlights: ['Italienisches Ambiente & Pizzeria an Bord', 'Familienfreundliches Unterhaltungsprogramm', 'Oft günstige Einstiegspreise', 'Mehrsprachiges Bordprogramm'],
+    },
     regions: {
       mittelmeer: [{ ship: 'Costa Smeralda', durations: [7, 10], note: 'Ab Savona durchs Westmittelmeer' }],
       karibik:    [{ ship: 'Costa Toscana',  durations: [7, 14], note: 'Winterroute ab Guadeloupe' }],
@@ -59,6 +78,12 @@ const CRUISE_LINES = [
     website: 'https://www.tuicruises.com',
     style: 'balanced', budget: 3, family: true, adultsFocus: false,
     bestFor: 'Paare und Familien, die Premium-Komfort in entspannter Club-Atmosphäre suchen.',
+    profile: {
+      founded: '2008', headquarters: 'Hamburg, Deutschland', fleetSize: '7 Schiffe',
+      shipClasses: ['Mein Schiff-Neubauklasse – Mein Schiff 3 bis Mein Schiff 7 (baugleiche Schwesterschiffe)', 'Mein Schiff 1 & 2 – umgebaute, kleinere Bestandsschiffe'],
+      fleet: ['Mein Schiff 7', 'Mein Schiff 6', 'Mein Schiff 5', 'Mein Schiff 4', 'Mein Schiff 3', 'Mein Schiff 2', 'Mein Schiff 1'],
+      highlights: ['Deutschsprachiges Clubschiff-Konzept', 'Premium-All-Inclusive inklusive', 'Kein Bordzwang – lockere Kleiderordnung', 'Ruhige, erwachsenenfreundliche Atmosphäre'],
+    },
     regions: {
       karibik:    [{ ship: 'Mein Schiff 6', durations: [10, 14],     note: 'Ab Bridgetown durch die Karibik' }],
       mittelmeer: [{ ship: 'Mein Schiff 7', durations: [7, 10],      note: 'Ab Palma durchs Mittelmeer' }],
@@ -72,6 +97,12 @@ const CRUISE_LINES = [
     website: 'https://www.royalcaribbean.com',
     style: 'entertainment', budget: 3, family: true, adultsFocus: false,
     bestFor: 'Familien und Gruppen, die Rekorde, Action und XXL-Entertainment an Bord lieben.',
+    profile: {
+      founded: '1968', headquarters: 'Miami, USA', fleetSize: 'rund 28 Schiffe',
+      shipClasses: ['Icon-Klasse – Icon of the Seas, Star of the Seas', 'Oasis-Klasse – u. a. Wonder of the Seas, Symphony of the Seas', 'Quantum-Klasse – u. a. Quantum of the Seas, Spectrum of the Seas'],
+      fleet: ['Icon of the Seas', 'Wonder of the Seas', 'Symphony of the Seas', 'Spectrum of the Seas', 'Quantum of the Seas'],
+      highlights: ['Zu den größten Passagierschiffen der Welt', 'Wasserparks, Achterbahnen & Zipline an Bord', 'Broadway-Shows & Eislaufbühnen', 'Sehr familienfreundliches Aktivitätsprogramm'],
+    },
     regions: {
       karibik:    [{ ship: 'Icon of the Seas',  durations: [7],      note: 'Wasserpark & Achterbahn-Feeling' }],
       mittelmeer: [{ ship: 'Wonder of the Seas', durations: [7, 10], note: 'Ab Rom durchs Mittelmeer' }],
@@ -84,6 +115,12 @@ const CRUISE_LINES = [
     website: 'https://www.ncl.com',
     style: 'balanced', budget: 3, family: true, adultsFocus: false,
     bestFor: 'Flexible Reisende und Paare, die Freestyle-Atmosphäre ohne feste Tischzeiten schätzen.',
+    profile: {
+      founded: '1966', headquarters: 'Miami, USA', fleetSize: 'rund 20 Schiffe',
+      shipClasses: ['Prima-Klasse – u. a. Norwegian Prima, Norwegian Viva', 'Breakaway-Plus-Klasse – u. a. Norwegian Bliss, Norwegian Encore'],
+      fleet: ['Norwegian Bliss', 'Norwegian Encore', 'Norwegian Epic', 'Pride of America', 'Norwegian Prima'],
+      highlights: ['Freestyle Cruising – keine festen Tischzeiten', 'Große Auswahl an Spezialitätenrestaurants', '„The Haven" – exklusiver Suiten-Bereich', 'Flexibel & international ausgerichtet'],
+    },
     regions: {
       hawaii:     [{ ship: 'Pride of America', durations: [7, 14], note: 'Einziges Schiff mit wöchentlicher Interinsel-Route durch Hawaii' }],
       karibik:    [{ ship: 'Norwegian Bliss',  durations: [7, 10], note: 'Ab Miami / New York' }],
@@ -96,6 +133,12 @@ const CRUISE_LINES = [
     website: 'https://www.princess.com',
     style: 'relax', budget: 3, family: true, adultsFocus: true,
     bestFor: 'Paare und reifere Reisende, die einen klassisch-gehobenen, ruhigen Stil bevorzugen.',
+    profile: {
+      founded: '1965', headquarters: 'Santa Clarita, USA', fleetSize: 'rund 15 Schiffe',
+      shipClasses: ['Sphere-Klasse – Sun Princess, Star Princess', 'Royal-Klasse – u. a. Royal Princess, Discovery Princess'],
+      fleet: ['Sun Princess', 'Discovery Princess', 'Royal Princess', 'Diamond Princess', 'Island Princess'],
+      highlights: ['Klassisch-gehobenes Ambiente', '„MedallionClass" – digitales Wearable an Bord', 'Bekannt für Alaska- & Weltreisen', 'Ruhiger, weniger party-lastiger Stil'],
+    },
     regions: {
       alaska:     [{ ship: 'Discovery Princess', durations: [7, 10], note: 'Gletscherfahrt & Naturparks' }],
       hawaii:     [{ ship: 'Royal Princess',     durations: [14, 15], note: 'Südsee-Route ab Los Angeles' }],
@@ -109,6 +152,12 @@ const CRUISE_LINES = [
     website: 'https://www.hl-cruises.com',
     style: 'relax', budget: 4, family: false, adultsFocus: true,
     bestFor: 'Erwachsene, die höchsten Komfort, Gourmet-Küche und Exklusivität suchen.',
+    profile: {
+      founded: 'Reederei-Tradition seit 1891', headquarters: 'Hamburg, Deutschland', fleetSize: '5 Schiffe',
+      shipClasses: ['EUROPA-Klasse – EUROPA, EUROPA 2 (5-Sterne-plus)', 'HANSEATIC-Klasse – HANSEATIC nature, HANSEATIC inspiration, HANSEATIC spirit (Expedition)'],
+      fleet: ['EUROPA', 'EUROPA 2', 'HANSEATIC nature', 'HANSEATIC inspiration', 'HANSEATIC spirit'],
+      highlights: ['5-Sterne-plus-Standard, sehr persönlicher Service', 'Gourmet-Küche auf höchstem Niveau', 'Kleine Passagierzahl, viel Privatsphäre', 'Expeditions- und Weltreise-Spezialist'],
+    },
     regions: {
       nordeuropa: [{ ship: 'EUROPA 2',    durations: [10, 14], note: 'Norwegen exklusiv & kleine Häfen' }],
       weltreise:  [{ ship: 'EUROPA',      durations: [14, 30, 120], note: 'Große Weltreise in höchstem Komfort' }],
@@ -122,6 +171,12 @@ const CRUISE_LINES = [
     website: 'https://www.resortsworldcruises.com',
     style: 'entertainment', budget: 2, family: true, adultsFocus: false,
     bestFor: 'Kurzentschlossene und Familien, die einen lebhaften Kurztrip ab Singapur suchen.',
+    profile: {
+      founded: 'Marke seit 2016 (vormals Dream Cruises)', headquarters: 'Singapur', fleetSize: '2 Schiffe',
+      shipClasses: ['Global-Klasse – Genting Dream, Resorts World One'],
+      fleet: ['Genting Dream', 'Resorts World One'],
+      highlights: ['Casino & asiatisch geprägtes Entertainment', 'Kurzreisen ideal für Erstkreuzfahrer', 'Vielfältige asiatische Küche an Bord', 'Ab Singapur in wenigen Tagen unterwegs'],
+    },
     regions: {
       asien: [{ ship: 'Genting Dream', durations: [4, 5, 7], note: 'Kurzreisen ab Singapur nach Malaysia & Thailand' }],
     },
@@ -131,6 +186,12 @@ const CRUISE_LINES = [
     website: 'https://www.hurtigruten.com',
     style: 'relax', budget: 3, family: false, adultsFocus: true,
     bestFor: 'Naturliebhaber, Paare und Alleinreisende, die echte Wildnis und Expeditionen abseits der Massen suchen.',
+    profile: {
+      founded: '1893', headquarters: 'Oslo, Norwegen', fleetSize: 'rund 15 Schiffe (Expedition & Postschiffroute)',
+      shipClasses: ['Explorer-Klasse – MS Fridtjof Nansen, MS Roald Amundsen (Hybridantrieb)', 'Klassische Postschiffe – u. a. MS Trollfjord, MS Nordkapp'],
+      fleet: ['MS Fridtjof Nansen', 'MS Roald Amundsen', 'MS Trollfjord', 'MS Nordkapp'],
+      highlights: ['Zodiac-Anlandungen & Expeditionsteam an Bord', 'Fokus auf Natur, Wissenschaft & Nachhaltigkeit', 'Hybridantrieb auf neueren Schiffen', 'Kleine Passagierzahl, keine Kinderanimation'],
+    },
     regions: {
       expedition: [{ ship: 'MS Fridtjof Nansen', durations: [10, 14, 18], note: 'Antarktis-Expedition mit Zodiac-Anlandungen' }],
       nordeuropa: [{ ship: 'MS Trollfjord',      durations: [7, 11],      note: 'Norwegens Küste entlang der klassischen Postschiffroute' }],
@@ -165,10 +226,16 @@ const DURATION_LABELS = {
   egal: { label: 'Egal, Hauptsache passend', target: null },
 };
 
-const STYLE_LABELS = {
-  relax: 'Ruhe & Entspannung',
-  balanced: 'Ausgewogen',
-  entertainment: 'Entertainment & Party',
+/* Style- & Preis-Metadaten: Label, Emoji und Farbe fürs Hervorheben im Explorer */
+const STYLE_META = {
+  relax:         { label: 'Ruhe & Entspannung',   emoji: '🧘', color: '#6a95ca' },
+  balanced:      { label: 'Ausgewogener Mix',      emoji: '⚖️', color: '#7a8fae' },
+  entertainment: { label: 'Entertainment & Party', emoji: '🎉', color: '#e8a37e' },
 };
 
-const BUDGET_LABELS = { 1: 'Günstig', 2: 'Mittel', 3: 'Gehoben', 4: 'Luxuriös' };
+const BUDGET_META = {
+  1: { label: 'Günstig',   symbol: '€' },
+  2: { label: 'Mittel',    symbol: '€€' },
+  3: { label: 'Gehoben',   symbol: '€€€' },
+  4: { label: 'Luxuriös',  symbol: '€€€€' },
+};
