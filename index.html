@@ -43,6 +43,18 @@
   <p>Wolkenwanderer Cruise Finder · Alle Angaben zu Reedereien, Schiffen und Routen dienen als unverbindliche Orientierung.</p>
 </footer>
 
+<button id="explorer-tab" class="explorer-tab" type="button" aria-haspopup="dialog" aria-controls="explorer-panel">
+  <span aria-hidden="true">⚓</span> Alle Reedereien
+</button>
+<div id="explorer-backdrop" class="explorer-backdrop"></div>
+<aside id="explorer-panel" class="explorer-panel" role="dialog" aria-label="Reederei-Übersicht" aria-hidden="true">
+  <div class="explorer-header">
+    <h3>Reedereien im Überblick</h3>
+    <button id="explorer-close" class="explorer-close" type="button" aria-label="Schließen">&times;</button>
+  </div>
+  <div id="explorer-body" class="explorer-body"></div>
+</aside>
+
 <script src="js/data.js"></script>
 <script src="js/app.js"></script>
 </body>

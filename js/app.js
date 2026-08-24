@@ -66,7 +66,7 @@ const QUESTIONS = {
     options: REGIONS.map((r) => ({ value: r.id, label: r.name, emoji: r.emoji, desc: r.desc })),
   },
   companion: {
-    title: 'Mit wem geht deine Reise?',
+    title: 'Mit wem reist du?',
     subtitle: 'Das hilft uns, Schiffe mit dem passenden Publikum zu finden.',
     key: 'companion',
     options: [
@@ -365,3 +365,110 @@ function renderResult() {
 }
 
 render();
+
+/* =========================================================
+   Reederei-Explorer – unabhängig vom Quiz jederzeit erreichbar
+   ========================================================= */
+
+const explorer = {
+  tab: document.getElementById('explorer-tab'),
+  backdrop: document.getElementById('explorer-backdrop'),
+  panel: document.getElementById('explorer-panel'),
+  body: document.getElementById('explorer-body'),
+  currentLineId: null,
+};
+
+function openExplorer() {
+  explorer.backdrop.classList.add('open');
+  explorer.panel.classList.add('open');
+  explorer.panel.setAttribute('aria-hidden', 'false');
+  renderExplorer();
+}
+
+function closeExplorer() {
+  explorer.backdrop.classList.remove('open');
+  explorer.panel.classList.remove('open');
+  explorer.panel.setAttribute('aria-hidden', 'true');
+}
+
+function renderExplorer() {
+  if (!explorer.currentLineId) {
+    explorer.body.innerHTML = `
+      <p class="explorer-intro">Stöbere unabhängig vom Cruise Finder durch alle Reedereien: Routen, Schiffe, Stil und für wen sie sich am besten eignen.</p>
+      ${CRUISE_LINES.map((line) => `
+        <button class="explorer-list-item" data-line="${line.id}">
+          <strong>${line.name}</strong>
+          <span class="tagline">${line.tagline}</span>
+          <span class="explorer-badges">
+            <span class="explorer-badge">${STYLE_LABELS[line.style]}</span>
+            <span class="explorer-badge">${BUDGET_LABELS[line.budget]}</span>
+            ${line.family ? '<span class="explorer-badge">Familienfreundlich</span>' : ''}
+          </span>
+        </button>
+      `).join('')}
+    `;
+    explorer.body.querySelectorAll('.explorer-list-item').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        explorer.currentLineId = btn.dataset.line;
+        renderExplorer();
+        explorer.body.scrollTo({ top: 0 });
+      });
+    });
+  } else {
+    const line = CRUISE_LINES.find((l) => l.id === explorer.currentLineId);
+    const routeRows = Object.entries(line.regions).map(([regionId, ships]) => {
+      const region = REGIONS.find((r) => r.id === regionId);
+      return ships.map((s) => `
+        <div class="route-item">
+          <span class="route-emoji">${region ? region.emoji : '🚢'}</span>
+          <div>
+            <strong>${region ? region.name : regionId} — ${s.ship}</strong>
+            <p>${s.note} · ${s.durations.join('/')} Tage</p>
+          </div>
+        </div>
+      `).join('');
+    }).join('');
+
+    explorer.body.innerHTML = `
+      <button class="explorer-back" id="explorer-back">← Alle Reedereien</button>
+      <div class="explorer-detail">
+        <h2>${line.name}</h2>
+        <p class="tagline">${line.tagline}</p>
+
+        <div class="explorer-section">
+          <h4>Auf einen Blick</h4>
+          <span class="explorer-badges">
+            <span class="explorer-badge">${STYLE_LABELS[line.style]}</span>
+            <span class="explorer-badge">${BUDGET_LABELS[line.budget]}</span>
+            ${line.family ? '<span class="explorer-badge">Familienfreundlich</span>' : ''}
+            ${line.adultsFocus ? '<span class="explorer-badge">Eher für Erwachsene</span>' : ''}
+          </span>
+        </div>
+
+        <div class="explorer-section">
+          <h4>Am besten geeignet für</h4>
+          <p>${line.bestFor}</p>
+        </div>
+
+        <div class="explorer-section">
+          <h4>Routen & Schiffe</h4>
+          ${routeRows}
+        </div>
+
+        <a class="btn btn-primary" href="${line.website}" target="_blank" rel="noopener noreferrer">Zur Website von ${line.name} ↗</a>
+      </div>
+    `;
+    document.getElementById('explorer-back').addEventListener('click', () => {
+      explorer.currentLineId = null;
+      renderExplorer();
+    });
+  }
+}
+
+explorer.tab.addEventListener('click', openExplorer);
+explorer.backdrop.addEventListener('click', closeExplorer);
+explorer.close = document.getElementById('explorer-close');
+explorer.close.addEventListener('click', closeExplorer);
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeExplorer();
+});

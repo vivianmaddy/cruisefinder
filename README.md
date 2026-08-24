@@ -18,6 +18,19 @@ Traumkreuzfahrt führt: **Route → Reederei → Schiff → Kabine**.
    Cruise Line, 14 Tage an Bord der Pride of America, Balkonkabine“*, plus zwei
    Alternativ-Reedereien und ein Link direkt zur Website der jeweiligen Reederei.
 
+Verfügbare Regionen: Karibik, Mittelmeer, Nordeuropa & Fjorde, Kanaren &
+Atlantik, Alaska, Hawaii & Südsee, Asien & Fernost, Expedition (Arktis &
+Antarktis) sowie Weltreise.
+
+## Reederei-Explorer
+
+Unabhängig vom Quiz gibt es einen Reiter am rechten Bildschirmrand
+("⚓ Alle Reedereien"), der jederzeit erreichbar ist. Er öffnet eine
+Seitenleiste mit allen Reedereien zum Stöbern – inklusive Stil, Preisklasse,
+Zielgruppe, allen angefahrenen Routen mit Schiffen sowie einem Link zur
+jeweiligen Website. So können Nutzer:innen auch ohne den Fragebogen einfach
+vergleichen.
+
 ## Projektstruktur
 
 ```
