@@ -49,16 +49,16 @@ aktuellen offiziellen Angaben der jeweiligen Reederei prüfen.
 
 ## Rechtliches: Impressum & Datenschutz
 
-Da die Seite kommerziell genutzt werden soll, sind `impressum.html` und
-`datenschutz.html` bereits angelegt und im Footer jeder Seite verlinkt.
+`impressum.html` und `datenschutz.html` sind ausgefüllt (Angaben übernommen
+vom „Wir Zwei"-Projekt: Christof Ball / CB – Coaching & Consulting) und im
+Footer jeder Seite verlinkt. Die technischen Angaben in der
+Datenschutzerklärung (Hosting via GitHub Pages, keine Cookies/kein Tracking,
+lokal gehostete Schriftarten, externe Links) beschreiben den tatsächlichen
+Stand der Seite.
 
-**Vor dem Live-Gang unbedingt ausfüllen:** Beide Seiten enthalten deutlich
-markierte Platzhalter (`[Name / Firma einsetzen]` etc.) für die echten
-Unternehmensdaten (Name/Firma, Anschrift, Kontakt, ggf. Handelsregister/
-USt-ID). Ein unvollständiges Impressum ist in Deutschland abmahnfähig
-(§ 5 DDG). Die technischen Angaben in der Datenschutzerklärung (Hosting via
-GitHub Pages, keine Cookies/kein Tracking, lokal gehostete Schriftarten,
-externe Links) stimmen bereits mit dem aktuellen Stand der Seite überein.
+Vor dem Live-Gang trotzdem kurz prüfen, ob die Kontaktdaten weiterhin aktuell
+sind und ob dieses konkrete Angebot (Cruise Finder) unter derselben
+verantwortlichen Stelle laufen soll.
 
 Die Google Fonts (Baloo 2, Inter, Yellowtail) werden deshalb nicht mehr von
 Google geladen, sondern liegen lokal unter `css/fonts/` – das vermeidet die

@@ -147,17 +147,6 @@ main {
 .legal-card ul { padding-left: 1.2rem; }
 .legal-card a { color: var(--sky-deep); }
 
-.legal-placeholder {
-  background: #fdf3e7;
-  border: 1px solid #eccf9c;
-  border-radius: 12px;
-  padding: 1rem 1.25rem;
-  color: #7a5a1e;
-  font-size: 0.92rem;
-  line-height: 1.55;
-  margin-bottom: 2rem;
-}
-
 /* ---------- Wave decoration ---------- */
 
 .wave-deco {
