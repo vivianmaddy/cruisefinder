@@ -24,6 +24,12 @@ Verfügbare Regionen: Karibik, Mittelmeer, Nordeuropa & Fjorde, Kanaren &
 Atlantik, Alaska, Hawaii & Südsee, Asien & Fernost, Expedition (Arktis &
 Antarktis) sowie Weltreise.
 
+Enthaltene Reedereien (16): AIDA Cruises, MSC Cruises, Costa Kreuzfahrten,
+TUI Cruises (Mein Schiff), Phoenix Reisen, Royal Caribbean International,
+Norwegian Cruise Line, Celebrity Cruises, Princess Cruises, Holland America
+Line, Carnival Cruise Line, Disney Cruise Line, Cunard, Hapag-Lloyd Cruises,
+Resorts World Cruises, Hurtigruten Expeditions.
+
 ## Reederei-Explorer
 
 Unabhängig vom Quiz gibt es einen Reiter am rechten Bildschirmrand

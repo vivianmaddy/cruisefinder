@@ -93,6 +93,23 @@ const CRUISE_LINES = [
     },
   },
   {
+    id: 'phoenix', name: 'Phoenix Reisen', tagline: 'Klassische Hochseekreuzfahrt ohne Trubel',
+    website: 'https://www.phoenixreisen.com',
+    style: 'relax', budget: 2, family: false, adultsFocus: true,
+    bestFor: 'Reifere, oft ältere Reisende, die klassische Kreuzfahrten ohne Familientrubel und mit ausführlichen Landausflügen schätzen.',
+    profile: {
+      founded: '1984', headquarters: 'Bonn, Deutschland', fleetSize: '2 Hochseeschiffe (plus Flusskreuzfahrt-Flotte)',
+      shipClasses: ['Traditionsschiffe – Amadea und Artania, keine modernen Großschiffe'],
+      fleet: ['Amadea', 'Artania'],
+      highlights: ['Sehr klassischer, unaufgeregter Kreuzfahrtstil', 'Landausflüge oft im Reisepreis enthalten', 'Deutschsprachige Reiseleitung', 'Treue Stammgästeschaft, ruhige Atmosphäre'],
+    },
+    regions: {
+      mittelmeer: [{ ship: 'Artania', durations: [10, 14], note: 'Klassische Mittelmeer-Rundreise' }],
+      nordeuropa: [{ ship: 'Amadea',  durations: [10, 14], note: 'Fjordroute ab Bremerhaven' }],
+      weltreise:  [{ ship: 'Artania', durations: [14, 30, 120], note: 'Lange Weltreise-Abschnitte' }],
+    },
+  },
+  {
     id: 'royal', name: 'Royal Caribbean International', tagline: 'Action, Rekorde, XXL-Entertainment',
     website: 'https://www.royalcaribbean.com',
     style: 'entertainment', budget: 3, family: true, adultsFocus: false,
@@ -145,6 +162,86 @@ const CRUISE_LINES = [
       karibik:    [{ ship: 'Sun Princess',       durations: [7, 10], note: 'Ab Fort Lauderdale' }],
       asien:      [{ ship: 'Diamond Princess',   durations: [7, 10, 14], note: 'Japan-Rundreise inkl. Kyoto & Okinawa' }],
       weltreise:  [{ ship: 'Island Princess',    durations: [14, 28, 111], note: 'Lange Fernost- & Weltreise-Abschnitte' }],
+    },
+  },
+  {
+    id: 'celebrity', name: 'Celebrity Cruises', tagline: 'Modern Luxury – gehobenes Design, ruhiger Premium-Stil',
+    website: 'https://www.celebritycruises.com',
+    style: 'relax', budget: 3, family: true, adultsFocus: true,
+    bestFor: 'Paare und Genießer, die modernen, stilvollen Komfort ohne starken Kinderprogramm-Fokus suchen.',
+    profile: {
+      founded: '1988', headquarters: 'Miami, USA', fleetSize: 'rund 15 Schiffe',
+      shipClasses: ['Edge-Klasse – Celebrity Edge, Celebrity Apex, Celebrity Beyond, Celebrity Ascent', 'Solstice-Klasse – u. a. Celebrity Silhouette, Celebrity Reflection'],
+      fleet: ['Celebrity Beyond', 'Celebrity Apex', 'Celebrity Edge', 'Celebrity Silhouette', 'Celebrity Reflection'],
+      highlights: ['„Modern Luxury" – gehobenes Design & Gastronomie', 'The Retreat – exklusiver Suiten-Bereich', 'Sehr gute Spezialitätenrestaurants', 'Ruhigere, adult-orientierte Atmosphäre'],
+    },
+    regions: {
+      karibik:    [{ ship: 'Celebrity Beyond', durations: [7, 10], note: 'Ab Fort Lauderdale durch die östliche Karibik' }],
+      mittelmeer: [{ ship: 'Celebrity Apex',   durations: [7, 10], note: 'Ab Barcelona durchs Mittelmeer' }],
+      alaska:     [{ ship: 'Celebrity Silhouette', durations: [7], note: 'Ab Seattle entlang der Inside Passage' }],
+    },
+  },
+  {
+    id: 'holland', name: 'Holland America Line', tagline: 'Klassisch-elegant, stark bei Alaska & Weltreisen',
+    website: 'https://www.hollandamerica.com',
+    style: 'relax', budget: 3, family: false, adultsFocus: true,
+    bestFor: 'Reifere Reisende und Naturliebhaber, die klassische Eleganz und Ziele wie Alaska schätzen.',
+    profile: {
+      founded: '1873', headquarters: 'Seattle, USA', fleetSize: 'rund 11 Schiffe',
+      shipClasses: ['Pinnacle-Klasse – Koningsdam, Nieuw Statendam, Rotterdam, Santa Maria', 'Signature-Klasse – u. a. Eurodam, Nieuw Amsterdam'],
+      fleet: ['Koningsdam', 'Nieuw Statendam', 'Rotterdam', 'Eurodam', 'Nieuw Amsterdam'],
+      highlights: ['Klassisch-elegantes Ambiente', 'Sehr stark im Alaska-Segment', 'Kulinarik-Partnerschaft mit America\'s Test Kitchen', 'Ruhiger, destinationsorientierter Stil'],
+    },
+    regions: {
+      alaska:    [{ ship: 'Koningsdam', durations: [7, 10], note: 'Gletscherrouten & Inside Passage ab Seattle' }],
+      karibik:   [{ ship: 'Nieuw Amsterdam', durations: [7, 10], note: 'Ab Fort Lauderdale durch die Karibik' }],
+      weltreise: [{ ship: 'Rotterdam', durations: [14, 30, 116], note: 'Grand World Voyage in mehreren Abschnitten' }],
+    },
+  },
+  {
+    id: 'carnival', name: 'Carnival Cruise Line', tagline: '„Fun Ship"-Feeling zu günstigen Preisen',
+    website: 'https://www.carnival.com',
+    style: 'entertainment', budget: 1, family: true, adultsFocus: false,
+    bestFor: 'Preisbewusste Familien und Erstkreuzfahrer, die unkompliziertes „Fun Ship"-Feeling suchen.',
+    profile: {
+      founded: '1972', headquarters: 'Miami, USA', fleetSize: 'rund 27 Schiffe',
+      shipClasses: ['Excel-Klasse – Mardi Gras, Carnival Celebration, Carnival Jubilee', 'Vista-Klasse – u. a. Carnival Horizon, Carnival Panorama'],
+      fleet: ['Mardi Gras', 'Carnival Celebration', 'Carnival Jubilee', 'Carnival Horizon', 'Carnival Panorama'],
+      highlights: ['„Fun Ship"-Konzept mit viel Programm', 'Sehr günstige Einstiegspreise', 'RedFrog Pub & Guy\'s Burger Joint an Bord', 'Größte Kreuzfahrtflotte Nordamerikas'],
+    },
+    regions: {
+      karibik: [{ ship: 'Mardi Gras', durations: [7], note: 'Ab Port Canaveral durch die östliche Karibik' }],
+    },
+  },
+  {
+    id: 'disney', name: 'Disney Cruise Line', tagline: 'Durchgestyltes Familienerlebnis mit Disney-Charakteren',
+    website: 'https://disneycruise.disney.go.com',
+    style: 'entertainment', budget: 4, family: true, adultsFocus: false,
+    bestFor: 'Familien mit Kindern, die ein durchgestyltes Disney-Erlebnis inklusive Charakteren an Bord suchen.',
+    profile: {
+      founded: '1998', headquarters: 'Celebration, Florida, USA', fleetSize: '6 Schiffe',
+      shipClasses: ['Wish-Klasse – Disney Wish, Disney Treasure', 'Dream-Klasse – Disney Dream, Disney Fantasy', 'Magic-Klasse – Disney Magic, Disney Wonder'],
+      fleet: ['Disney Wish', 'Disney Treasure', 'Disney Dream', 'Disney Fantasy', 'Disney Magic'],
+      highlights: ['Private Insel Castaway Cay in der Karibik', 'Disney-Charaktere & Broadway-Shows an Bord', 'Adults-Only-Bereiche trotz Familienfokus', 'Sehr hoher Betreuungsstandard für Kinder'],
+    },
+    regions: {
+      karibik: [{ ship: 'Disney Wish', durations: [7], note: 'Ab Port Canaveral inkl. Privatinsel Castaway Cay' }],
+    },
+  },
+  {
+    id: 'cunard', name: 'Cunard', tagline: 'Britische Tradition, formelle Abende, echte Ozeanliner-Eleganz',
+    website: 'https://www.cunard.com',
+    style: 'relax', budget: 4, family: false, adultsFocus: true,
+    bestFor: 'Traditionsbewusste Reisende, die britische Eleganz, formelle Abende und klassische Transatlantiküberfahrten lieben.',
+    profile: {
+      founded: '1840', headquarters: 'Southampton, Vereinigtes Königreich', fleetSize: '4 Schiffe',
+      shipClasses: ['Queen Mary 2 – einziger echter Ozeanliner im aktiven Liniendienst', 'Queen-Klasse – Queen Victoria, Queen Elizabeth, Queen Anne'],
+      fleet: ['Queen Mary 2', 'Queen Victoria', 'Queen Elizabeth', 'Queen Anne'],
+      highlights: ['Klassische Transatlantiküberfahrt mit der Queen Mary 2', 'Formelle Abende mit Dresscode', 'Sehr traditionsreiche, britische Atmosphäre', 'Große Bibliothek & Ballsaal an Bord'],
+    },
+    regions: {
+      weltreise:  [{ ship: 'Queen Mary 2', durations: [7, 14, 30], note: 'Klassische Transatlantiküberfahrt & Weltreise-Abschnitte' }],
+      mittelmeer: [{ ship: 'Queen Victoria', durations: [10, 14], note: 'Ab Southampton durchs Mittelmeer' }],
     },
   },
   {
