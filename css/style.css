@@ -1,3 +1,28 @@
+/* Lokal gehostete Schriftarten (kein Drittanbieter-Aufruf an Google Fonts) */
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/inter-variable.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Baloo 2";
+  src: url("fonts/baloo2-variable.woff2") format("woff2");
+  font-weight: 500 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Yellowtail";
+  src: url("fonts/yellowtail.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --navy: #17325c;
   --navy-deep: #0f2444;
@@ -101,6 +126,36 @@ main {
   padding: 1.5rem;
   position: relative;
   z-index: 2;
+}
+
+.site-footer .footer-links { margin-top: 0.5rem; }
+
+.footer-links a {
+  color: var(--ink-soft);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.footer-links a:hover { color: var(--navy); }
+
+/* ---------- Rechtstexte (Impressum/Datenschutz) ---------- */
+
+.legal-card { max-width: 720px; margin: 0 auto; text-align: left; }
+.legal-card h1 { font-size: 1.6rem; }
+.legal-card h2 { font-size: 1.1rem; margin-top: 2rem; }
+.legal-card p, .legal-card li { color: var(--ink); line-height: 1.6; }
+.legal-card ul { padding-left: 1.2rem; }
+.legal-card a { color: var(--sky-deep); }
+
+.legal-placeholder {
+  background: #fdf3e7;
+  border: 1px solid #eccf9c;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  color: #7a5a1e;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  margin-bottom: 2rem;
 }
 
 /* ---------- Wave decoration ---------- */

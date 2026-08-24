@@ -47,11 +47,32 @@ Flottenauswahl) sind als allgemeine Orientierung gedacht und wurden ohne
 Live-Zugriff auf aktuelle Reederei-Daten erstellt – vor dem Live-Gang gegen die
 aktuellen offiziellen Angaben der jeweiligen Reederei prüfen.
 
+## Rechtliches: Impressum & Datenschutz
+
+Da die Seite kommerziell genutzt werden soll, sind `impressum.html` und
+`datenschutz.html` bereits angelegt und im Footer jeder Seite verlinkt.
+
+**Vor dem Live-Gang unbedingt ausfüllen:** Beide Seiten enthalten deutlich
+markierte Platzhalter (`[Name / Firma einsetzen]` etc.) für die echten
+Unternehmensdaten (Name/Firma, Anschrift, Kontakt, ggf. Handelsregister/
+USt-ID). Ein unvollständiges Impressum ist in Deutschland abmahnfähig
+(§ 5 DDG). Die technischen Angaben in der Datenschutzerklärung (Hosting via
+GitHub Pages, keine Cookies/kein Tracking, lokal gehostete Schriftarten,
+externe Links) stimmen bereits mit dem aktuellen Stand der Seite überein.
+
+Die Google Fonts (Baloo 2, Inter, Yellowtail) werden deshalb nicht mehr von
+Google geladen, sondern liegen lokal unter `css/fonts/` – das vermeidet die
+in Deutschland abmahnrelevante Übertragung von Besucher-IP-Adressen an Google
+beim externen Einbinden von Google Fonts (LG München, Urteil von 2022).
+
 ## Projektstruktur
 
 ```
 index.html        Seitengerüst
+impressum.html     Impressum (Platzhalter, vor Live-Gang ausfüllen)
+datenschutz.html   Datenschutzerklärung (Kontaktdaten als Platzhalter)
 css/style.css      Design (Ozean-Thema, responsive)
+css/fonts/         Lokal gehostete Schriftdateien (Baloo 2, Inter, Yellowtail)
 js/data.js         Wissensdatenbank: Regionen, Reedereien, Schiffe, Kabinentypen
 js/app.js          Quiz-Engine: Fragenfluss, Matching-Logik, Rendering
 .github/workflows/pages.yml   Automatisches Deployment auf GitHub Pages
