@@ -411,13 +411,21 @@ function budgetBadge(budgetLevel) {
   return `<span class="explorer-badge explorer-badge-budget">${b.symbol} ${b.label}</span>`;
 }
 
+function shipIcon(size) {
+  return `<svg viewBox="0 0 24 24" width="${size}" height="${size}" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M4 15.5c1.5 1.2 3 1.2 4.5 0 1.5-1.2 3-1.2 4.5 0 1.5 1.2 3 1.2 4.5 0 1.5-1.2 3-1.2 4.5 0" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/>
+    <path d="M6 13.5 6.8 8h10.4l.8 5.5" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/>
+    <path d="M11.5 8V3.5h2.2l1.6 2.2-1.6 1v1.3" stroke="#fff" stroke-width="1.2" stroke-linejoin="round"/>
+  </svg>`;
+}
+
 function renderExplorer() {
   if (!explorer.currentLineId) {
     explorer.body.innerHTML = `
       <p class="explorer-intro">Stöbere unabhängig vom Cruise Finder durch alle Reedereien: Routen, Schiffe, Stil und für wen sie sich am besten eignen.</p>
       ${CRUISE_LINES.map((line) => `
         <button class="explorer-list-item" data-line="${line.id}">
-          <span class="explorer-avatar" style="background:${STYLE_META[line.style].color};">${STYLE_META[line.style].emoji}</span>
+          <span class="explorer-avatar" style="background:${STYLE_META[line.style].color};">${shipIcon(18)}</span>
           <span class="explorer-list-text">
             <strong>${line.name}</strong>
             <span class="tagline">${line.tagline}</span>
@@ -434,7 +442,6 @@ function renderExplorer() {
       btn.addEventListener('click', () => {
         explorer.currentLineId = btn.dataset.line;
         renderExplorer();
-        explorer.body.scrollTo({ top: 0 });
       });
     });
   } else {
@@ -456,7 +463,7 @@ function renderExplorer() {
     explorer.body.innerHTML = `
       <button class="explorer-back" id="explorer-back">← Alle Reedereien</button>
       <div class="explorer-detail">
-        <span class="explorer-avatar explorer-avatar-lg" style="background:${STYLE_META[line.style].color};">${STYLE_META[line.style].emoji}</span>
+        <span class="explorer-avatar explorer-avatar-lg" style="background:${STYLE_META[line.style].color};">${shipIcon(26)}</span>
         <h2>${line.name}</h2>
         <p class="tagline">${line.tagline}</p>
 
@@ -518,6 +525,8 @@ function renderExplorer() {
       renderExplorer();
     });
   }
+
+  explorer.panel.scrollTop = 0;
 }
 
 explorer.tab.addEventListener('click', openExplorer);
