@@ -16,7 +16,7 @@ Traumkreuzfahrt führt: **Route → Reederei → Schiff → Kabine**.
 5. **Kabinencheck** – Bedeutung des Ausblicks (Innen-/Außen-/Balkonkabine/Suite).
 6. **Ergebnis** – konkrete Empfehlung, z. B. *„Hawaii & Südsee auf der Norwegian
    Cruise Line, 14 Tage an Bord der Pride of America, Balkonkabine“*, plus zwei
-   Alternativ-Reedereien und ein CTA zur unverbindlichen Anfrage.
+   Alternativ-Reedereien und ein Link direkt zur Website der jeweiligen Reederei.
 
 ## Projektstruktur
 
@@ -50,6 +50,10 @@ Alle Reedereien, Schiffe, Regionen und Kabinentypen liegen zentral in
 `js/data.js`. Neue Reederei hinzufügen, Schiff ergänzen oder eine Region für
 eine Reederei freischalten – alles über dieses eine Objekt.
 
-Die im Ergebnis verlinkte Kontakt-E-Mail (`beratung@wolkenwanderer.de`) ist ein
-Platzhalter und sollte vor dem Live-Gang durch die echte Kontaktadresse von
-Wolkenwanderer ersetzt werden (in `js/app.js`, Funktion `renderResult`).
+Jede Reederei hat dort ein `website`-Feld mit der offiziellen Startseite; dieser
+Link wird im Ergebnis als CTA ("Zur Website von …") sowie bei den Alternativen
+verwendet. Die hinterlegten Domains sind gut etablierte, öffentliche Reederei-
+Websites – vor dem Live-Gang trotzdem kurz gegenprüfen, ob sie noch aktuell
+sind. Ein reiner Link zur Startseite einer Reederei ist datenschutzrechtlich
+unproblematisch, da dabei keine personenbezogenen Daten übertragen werden; die
+Links öffnen sich mit `rel="noopener noreferrer"` in einem neuen Tab.

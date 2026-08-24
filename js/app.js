@@ -307,10 +307,9 @@ function renderResult() {
   if (r.fallback) {
     el.innerHTML = `
       <div class="result-emoji">🧭</div>
-      <h2>Für diese Kombination brauchen wir eine persönliche Beratung</h2>
-      <p class="subtitle">Deine Wünsche sind sehr individuell – genau dafür sind wir da. Lass uns gemeinsam die perfekte Route für dich finden.</p>
-      <a class="btn btn-primary" href="mailto:beratung@wolkenwanderer.de?subject=Cruise%20Finder%20Anfrage">Persönliche Beratung anfragen</a>
-      <button class="btn btn-ghost" id="restart-btn">Nochmal von vorn</button>
+      <h2>Für diese Kombination haben wir noch keinen passenden Vorschlag</h2>
+      <p class="subtitle">Versuch es gern mit einer anderen Region oder starte den Cruise Finder noch einmal von vorn.</p>
+      <button class="btn btn-primary" id="restart-btn">Nochmal von vorn</button>
     `;
   } else {
     el.innerHTML = `
@@ -345,17 +344,17 @@ function renderResult() {
           <h4>Weitere Optionen für dich</h4>
           <div class="alt-grid">
             ${r.alternatives.map((l) => `
-              <div class="alt-card">
+              <a class="alt-card" href="${l.website}" target="_blank" rel="noopener noreferrer">
                 <strong>${l.name}</strong>
                 <span>${l.tagline}</span>
-              </div>
+              </a>
             `).join('')}
           </div>
         </div>
       ` : ''}
 
       <div class="result-actions">
-        <a class="btn btn-primary" href="mailto:beratung@wolkenwanderer.de?subject=Cruise%20Finder%20Ergebnis&body=Mein%20Ergebnis%3A%20${encodeURIComponent(r.region.name + ' auf der ' + r.line.name + ', ' + r.days + ' Tage, ' + r.cabin.name)}">Jetzt unverbindlich anfragen</a>
+        <a class="btn btn-primary" href="${r.line.website}" target="_blank" rel="noopener noreferrer">Zur Website von ${r.line.name} ↗</a>
         <button class="btn btn-ghost" id="restart-btn">Nochmal von vorn</button>
       </div>
     `;

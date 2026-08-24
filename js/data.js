@@ -19,6 +19,7 @@ const REGIONS = [
 const CRUISE_LINES = [
   {
     id: 'aida', name: 'AIDA Cruises', tagline: 'Bunt, entspannt, Clubatmosphäre an Bord',
+    website: 'https://www.aida.de',
     style: 'entertainment', budget: 1, family: true, adultsFocus: false,
     regions: {
       karibik:    [{ ship: 'AIDAperla',  durations: [7, 11, 14], note: 'Inselhopping ab Guadeloupe' }],
@@ -29,6 +30,7 @@ const CRUISE_LINES = [
   },
   {
     id: 'msc', name: 'MSC Cruises', tagline: 'Italienisches Flair, moderne Mega-Schiffe',
+    website: 'https://www.msccruises.de',
     style: 'entertainment', budget: 2, family: true, adultsFocus: false,
     regions: {
       karibik:    [{ ship: 'MSC Seascape',   durations: [7, 10, 14], note: 'Ab Miami durch die östliche Karibik' }],
@@ -39,6 +41,7 @@ const CRUISE_LINES = [
   },
   {
     id: 'costa', name: 'Costa Kreuzfahrten', tagline: 'La Dolce Vita – italienisches Lebensgefühl',
+    website: 'https://www.costakreuzfahrten.de',
     style: 'entertainment', budget: 2, family: true, adultsFocus: false,
     regions: {
       mittelmeer: [{ ship: 'Costa Smeralda', durations: [7, 10], note: 'Ab Savona durchs Westmittelmeer' }],
@@ -47,6 +50,7 @@ const CRUISE_LINES = [
   },
   {
     id: 'tui', name: 'TUI Cruises (Mein Schiff)', tagline: 'Premium-Clubschiff, entspannt & stilvoll',
+    website: 'https://www.tuicruises.com',
     style: 'balanced', budget: 3, family: true, adultsFocus: false,
     regions: {
       karibik:    [{ ship: 'Mein Schiff 6', durations: [10, 14],     note: 'Ab Bridgetown durch die Karibik' }],
@@ -58,6 +62,7 @@ const CRUISE_LINES = [
   },
   {
     id: 'royal', name: 'Royal Caribbean International', tagline: 'Action, Rekorde, XXL-Entertainment',
+    website: 'https://www.royalcaribbean.com',
     style: 'entertainment', budget: 3, family: true, adultsFocus: false,
     regions: {
       karibik:    [{ ship: 'Icon of the Seas',  durations: [7],      note: 'Wasserpark & Achterbahn-Feeling' }],
@@ -67,6 +72,7 @@ const CRUISE_LINES = [
   },
   {
     id: 'ncl', name: 'Norwegian Cruise Line', tagline: 'Freestyle Cruising – flexibel & international',
+    website: 'https://www.ncl.com',
     style: 'balanced', budget: 3, family: true, adultsFocus: false,
     regions: {
       hawaii:     [{ ship: 'Pride of America', durations: [7, 14], note: 'Einziges Schiff mit wöchentlicher Interinsel-Route durch Hawaii' }],
@@ -77,6 +83,7 @@ const CRUISE_LINES = [
   },
   {
     id: 'princess', name: 'Princess Cruises', tagline: 'Klassisch-gehoben, ruhig und stilvoll',
+    website: 'https://www.princess.com',
     style: 'relax', budget: 3, family: true, adultsFocus: true,
     regions: {
       alaska:     [{ ship: 'Discovery Princess', durations: [7, 10], note: 'Gletscherfahrt & Naturparks' }],
@@ -87,6 +94,7 @@ const CRUISE_LINES = [
   },
   {
     id: 'hlc', name: 'Hapag-Lloyd Cruises', tagline: '5-Sterne-plus, Gourmet, Ruhe und Exklusivität',
+    website: 'https://www.hl-cruises.com',
     style: 'relax', budget: 4, family: false, adultsFocus: true,
     regions: {
       nordeuropa: [{ ship: 'EUROPA 2',    durations: [10, 14], note: 'Norwegen exklusiv & kleine Häfen' }],
