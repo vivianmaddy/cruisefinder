@@ -252,7 +252,11 @@ function renderStart() {
   el.className = 'card start-card';
   el.innerHTML = `
     <div class="start-emoji">🚢</div>
-    <h1>Finde deine perfekte Traumkreuzfahrt</h1>
+    <p class="eyebrow">Wolkenwanderer Cruise Finder</p>
+    <h1 class="hero-title">
+      <span class="hero-caps">Finde deine</span>
+      <span class="hero-script">Traumroute</span>
+    </h1>
     <p>Beantworte ein paar kurze Fragen und wir zeigen dir die passende Route, Reederei, dein Traumschiff und die ideale Kabine – ganz persönlich abgestimmt auf dich.</p>
     <button class="btn btn-primary" id="start-btn">Los geht's</button>
   `;
@@ -312,7 +316,8 @@ function renderResult() {
     el.innerHTML = `
       <div class="result-emoji">${r.region.emoji}</div>
       <span class="result-tag">Dein Ergebnis</span>
-      <h2>${r.region.name} auf der ${r.line.name}</h2>
+      <h2 class="hero-title"><span class="hero-script">Deine Traumreise</span></h2>
+      <p class="result-region-line">${r.region.name} auf der ${r.line.name}</p>
       <p class="result-summary">
         <strong>${r.days} Tage</strong> an Bord der <strong>${r.ship.ship}</strong> —
         ${r.ship.note}. Dazu empfehlen wir dir eine <strong>${r.cabin.name}</strong>.
