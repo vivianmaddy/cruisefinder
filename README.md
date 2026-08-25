@@ -28,7 +28,9 @@ Enthaltene Reedereien (16): AIDA Cruises, MSC Cruises, Costa Kreuzfahrten,
 TUI Cruises (Mein Schiff), Phoenix Reisen, Royal Caribbean International,
 Norwegian Cruise Line, Celebrity Cruises, Princess Cruises, Holland America
 Line, Carnival Cruise Line, Disney Cruise Line, Cunard, Hapag-Lloyd Cruises,
-Resorts World Cruises, Hurtigruten Expeditions.
+Dream Cruises (das Genting-Dream-Schiff, vormals unter „Resorts World
+Cruises" vermarktet) und HX Expeditions (die frühere Hurtigruten-
+Expeditionssparte, seit Ende 2024 ein eigenständiges Unternehmen).
 
 ## Reederei-Explorer
 
@@ -38,14 +40,22 @@ Seitenleiste mit allen Reedereien zum Stöbern – jede mit farblich hervorgehob
 Stil-Badge (🧘/⚖️/🎉) und Preis-Badge mit €-Symbolen statt nur einem Wort, damit
 sofort klar ist, ob "Mittel" die Preisklasse meint. In der Detailansicht gibt es
 zusätzlich: Basics (gegründet, Sitz, Flottengröße), Angebote & Highlights an
-Bord, Schiffsklassen, eine Auswahl der Flotte als Chips sowie alle Routen mit
-Schiffen und den Website-Link. So können Nutzer:innen auch ohne den Fragebogen
-einfach vergleichen und stöbern.
+Bord, Schiffsklassen und die komplette aktuelle Flotte als Chips (keine
+Auswahl, sondern alle Schiffe) sowie alle Routen mit Schiffen und den
+Website-Link. So können Nutzer:innen auch ohne den Fragebogen einfach
+vergleichen und stöbern.
 
-Die Zusatzangaben pro Reederei (Gründungsjahr, Sitz, Flottengröße, Schiffsklassen,
-Flottenauswahl) sind als allgemeine Orientierung gedacht und wurden ohne
-Live-Zugriff auf aktuelle Reederei-Daten erstellt – vor dem Live-Gang gegen die
-aktuellen offiziellen Angaben der jeweiligen Reederei prüfen.
+Die Reederei-Profile (Gründungsjahr, Sitz, Flottengröße, Schiffsklassen, komplette
+Flotte) wurden per Websuche recherchiert und mit mehreren Quellen abgeglichen
+(Stand: August 2026), nicht mehr nur aus dem Trainingswissen geschätzt. Zwei
+Reedereien wurden dabei umbenannt, weil sich die Marken 2024/25 real verändert
+haben: „Resorts World Cruises" heißt für das Genting-Dream-Schiff jetzt wieder
+„Dream Cruises", und „Hurtigruten Expeditions" ist seit der Trennung von der
+Muttergesellschaft Ende 2024 die eigenständige Firma „HX Expeditions". Cruise-
+Flotten ändern sich trotzdem laufend (Neubauten, Verkäufe, Umbenennungen) –
+bei den ganz großen Flotten (z. B. Royal Caribbean, Carnival, MSC mit 25–29
+Schiffen) vor dem Live-Gang stichprobenartig gegen die aktuellen offiziellen
+Angaben prüfen.
 
 ## Rechtliches: Impressum & Datenschutz
 
@@ -69,8 +79,8 @@ beim externen Einbinden von Google Fonts (LG München, Urteil von 2022).
 
 ```
 index.html        Seitengerüst
-impressum.html     Impressum (Platzhalter, vor Live-Gang ausfüllen)
-datenschutz.html   Datenschutzerklärung (Kontaktdaten als Platzhalter)
+impressum.html     Impressum
+datenschutz.html   Datenschutzerklärung
 css/style.css      Design (Ozean-Thema, responsive)
 css/fonts/         Lokal gehostete Schriftdateien (Baloo 2, Inter, Yellowtail)
 js/data.js         Wissensdatenbank: Regionen, Reedereien, Schiffe, Kabinentypen
